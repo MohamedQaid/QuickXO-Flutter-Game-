@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class CustomBorderPlay extends StatelessWidget {
@@ -8,6 +7,24 @@ class CustomBorderPlay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('border');
+    return GridView.builder(
+      itemCount: 9,
+      gridDelegate:
+          const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+      itemBuilder: (context, index) {
+        return Container(
+          alignment: Alignment.center,
+          margin: const EdgeInsets.all(4.0),
+          decoration: BoxDecoration(
+              color: const Color(0xff00537A),
+              borderRadius: BorderRadius.circular(12.0),
+              border: Border.all(color: const Color(0xff00A0DB))),
+          child: const Text(
+            'X',
+            style: TextStyle(color: Color(0xffffffff), fontSize: 35),
+          ),
+        );
+      },
+    );
   }
 }
