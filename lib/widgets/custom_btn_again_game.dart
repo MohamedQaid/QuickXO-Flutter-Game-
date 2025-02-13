@@ -8,14 +8,16 @@ class CustomBtnAgainGame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Container(
-          height: 150,
-          padding: const EdgeInsets.all(15.0),
-          decoration: BoxDecoration(
-              color: const Color(0xff00537A),
-              borderRadius: BorderRadius.circular(12.0)),
-          child: const CustomText(stringText: 'Play Again')),
+    return Align(
+      alignment: Alignment.center,
+      child: GestureDetector(
+        child: Container(
+            padding: const EdgeInsets.all(15.0),
+            decoration: BoxDecoration(
+                color: const Color(0xff00537A),
+                borderRadius: BorderRadius.circular(12.0)),
+            child: const CustomText(stringText: 'Play Again')),
+      ),
     );
   }
 }
