@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'custom/custom_text.dart';
+
 class CustomBorderPlay extends StatelessWidget {
   const CustomBorderPlay({
     super.key,
@@ -19,9 +21,9 @@ class CustomBorderPlay extends StatelessWidget {
               color: const Color(0xff00537A),
               borderRadius: BorderRadius.circular(12.0),
               border: Border.all(color: const Color(0xff00A0DB))),
-          child: const Text(
-            'X',
-            style: TextStyle(color: Color(0xffffffff), fontSize: 35),
+          child: const CustomText(
+            stringText: 'X',
+            fontSize: 35,
           ),
         );
       },
