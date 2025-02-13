@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:quick_xo_flutter_game/widgets/custom/custom_text.dart';
 
 class CustomViewResult extends StatelessWidget {
   const CustomViewResult({
@@ -13,16 +13,19 @@ class CustomViewResult extends StatelessWidget {
       children: [
         Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           Column(
-            children: [Text('play2'), Text('5')],
+            children: [
+              CustomText(stringText: 'pLayer X'),
+              CustomText(stringText: '5')
+            ],
           ),
           Column(
             children: [
-              Text('play2'),
-              Text('4'),
+              CustomText(stringText: 'pLayer O'),
+              CustomText(stringText: '3')
             ],
           ),
         ]),
-        Text('result')
+        CustomText(stringText: ' Player  X  wins!'),
       ],
     );
   }
