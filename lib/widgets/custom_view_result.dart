@@ -4,28 +4,34 @@ import 'package:quick_xo_flutter_game/widgets/custom/custom_text.dart';
 class CustomViewResult extends StatelessWidget {
   const CustomViewResult({
     super.key,
+    required this.stPlayerXWin,
+    required this.stPlayerOWin,
+    required this.resultWin,
   });
 
+  final int stPlayerXWin;
+  final int stPlayerOWin;
+  final String resultWin;
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           Column(
             children: [
-              CustomText(stringText: 'pLayer X'),
-              CustomText(stringText: '5')
+              const CustomText(stringText: 'pLayer X'),
+              CustomText(stringText: '$stPlayerXWin')
             ],
           ),
           Column(
             children: [
-              CustomText(stringText: 'pLayer O'),
-              CustomText(stringText: '3')
+              const CustomText(stringText: 'pLayer O'),
+              CustomText(stringText: '$stPlayerOWin')
             ],
           ),
         ]),
-        CustomText(stringText: ' Player  X  wins!'),
+        CustomText(stringText: resultWin),
       ],
     );
   }
