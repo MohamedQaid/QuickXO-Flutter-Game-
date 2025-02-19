@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 
 class ProviderCheck extends ChangeNotifier {
@@ -18,16 +16,35 @@ class ProviderCheck extends ChangeNotifier {
   }
 
   void checkResult(List borderXO) {
-    if (borderXO[0] == borderXO[1] &&
-        borderXO[0] == borderXO[2] &&
-        borderXO[0] != '') {
-      _result = 'Player ${borderXO[0]}  Wins!';
-      if (borderXO[0] == 'X') {
-        _playerX += 1;
-      } else {
-        _playerO += 1;
+    List<List<int>> oddsOfWinning = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+    for (var checkOdds in oddsOfWinning) {
+      if (borderXO[checkOdds[0]] != '' &&
+          borderXO[checkOdds[0]] == borderXO[checkOdds[1]] &&
+          borderXO[checkOdds[0]] == borderXO[checkOdds[2]]) {
+        _result = 'Player ${borderXO[checkOdds[0]]}  Wins!';
+        updateResult(borderXO[checkOdds[0]]);
+        notifyListeners();
+        return;
       }
-      notifyListeners();
     }
+
+    if (!borderXO.contains('')) {
+      _result = 'It\'s a Draw! 😲';
+    }
+  }
+
+  void updateResult(String winPlayer) {
+    winPlayer == 'X' ? _playerX++ : _playerO++;
+
+    notifyListeners();
   }
 }
