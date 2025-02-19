@@ -30,10 +30,12 @@ class HomeScreen extends StatelessWidget {
               Expanded(
                   flex: 5,
                   child: CustomBorderPlay(
-                    onTap: (int index) {
-                      provPlayOnBorder.playOnBorder(index);
-                      provCheckWin.checkResult(provPlayOnBorder.borderXO);
-                    },
+                    onTap: provCheckWin.gameOver
+                        ? null
+                        : (int index) {
+                            provPlayOnBorder.playOnBorder(index);
+                            provCheckWin.checkResult(provPlayOnBorder.borderXO);
+                          },
                     borderXO: provPlayOnBorder.borderXO,
                   )),
               Expanded(

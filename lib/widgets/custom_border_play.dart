@@ -18,7 +18,9 @@ class CustomBorderPlay extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            onTap!(index);
+            if (onTap != null) {
+              onTap!(index);
+            }
           },
           child: Container(
             alignment: Alignment.center,

@@ -4,14 +4,17 @@ class ProviderCheck extends ChangeNotifier {
   String _result = '';
   int _playerX = 0;
   int _playerO = 0;
+  bool _gameOver = false;
 
   get playerX => _playerX;
   get playerO => _playerO;
   get result => _result;
+  get gameOver => _gameOver;
 
   void clearResult(List borderXO) {
     borderXO.fillRange(0, borderXO.length, "");
     _result = '';
+    _gameOver = false;
     notifyListeners();
   }
 
@@ -32,6 +35,7 @@ class ProviderCheck extends ChangeNotifier {
           borderXO[checkOdds[0]] == borderXO[checkOdds[2]]) {
         _result = 'Player ${borderXO[checkOdds[0]]}  Wins!';
         updateResult(borderXO[checkOdds[0]]);
+        _gameOver = true;
         notifyListeners();
         return;
       }
