@@ -37,6 +37,7 @@ class HomeScreen extends StatelessWidget {
                             provCheckWin.checkResult(provPlayOnBorder.borderXO);
                           },
                     borderXO: provPlayOnBorder.borderXO,
+                    winOdds: provCheckWin.oddsWin,
                   )),
               Expanded(
                   flex: 2,

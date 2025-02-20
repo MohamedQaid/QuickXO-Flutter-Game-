@@ -5,16 +5,19 @@ class ProviderCheck extends ChangeNotifier {
   int _playerX = 0;
   int _playerO = 0;
   bool _gameOver = false;
+  List<int> _oddsWin = [];
 
+  get result => _result;
   get playerX => _playerX;
   get playerO => _playerO;
-  get result => _result;
   get gameOver => _gameOver;
+  get oddsWin => _oddsWin;
 
   void clearResult(List borderXO) {
     borderXO.fillRange(0, borderXO.length, "");
     _result = '';
     _gameOver = false;
+    _oddsWin = [];
     notifyListeners();
   }
 
@@ -33,7 +36,8 @@ class ProviderCheck extends ChangeNotifier {
       if (borderXO[checkOdds[0]] != '' &&
           borderXO[checkOdds[0]] == borderXO[checkOdds[1]] &&
           borderXO[checkOdds[0]] == borderXO[checkOdds[2]]) {
-        _result = 'Player ${borderXO[checkOdds[0]]}  Wins!';
+        _result = 'Player ${borderXO[checkOdds[0]]}  Wins! 😁';
+        _oddsWin = checkOdds;
         updateResult(borderXO[checkOdds[0]]);
         _gameOver = true;
         notifyListeners();
@@ -48,7 +52,6 @@ class ProviderCheck extends ChangeNotifier {
 
   void updateResult(String winPlayer) {
     winPlayer == 'X' ? _playerX++ : _playerO++;
-
     notifyListeners();
   }
 }

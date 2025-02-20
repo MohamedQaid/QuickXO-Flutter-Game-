@@ -20,13 +20,13 @@ class CustomViewResult extends StatelessWidget {
         Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           Column(
             children: [
-              const CustomText(stringText: 'pLayer X'),
+              const CustomText(stringText: 'Player X'),
               CustomText(stringText: '$stPlayerXWin')
             ],
           ),
           Column(
             children: [
-              const CustomText(stringText: 'pLayer O'),
+              const CustomText(stringText: 'Player O'),
               CustomText(stringText: '$stPlayerOWin')
             ],
           ),
